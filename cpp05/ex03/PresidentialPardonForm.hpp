@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 23:47:52 by bpouchep          #+#    #+#             */
-/*   Updated: 2022/07/27 23:47:54 by bpouchep         ###   ########.fr       */
+/*   Created: 2022/07/27 19:43:02 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/07/27 19:43:02 by bpouchep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-#define INTERN_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
+#include "Form.hpp"
 #include <string>
 #include <iostream>
-#include "Form.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 
-class Intern {
+class PresidentialPardonForm : public Form {
 public:
-	Intern();
-	Intern(const Intern& copy);
-	~Intern();
+	PresidentialPardonForm();
+	PresidentialPardonForm(const std::string& target);
+	PresidentialPardonForm(const PresidentialPardonForm& copy);
+	~PresidentialPardonForm();
 
-	Intern& operator=(const Intern& other);
+	PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 
-	Form* makeForm(std::string name, std::string target);
+	void executeAction() const;
 
 private:
-	typedef struct s_forms {
-		std::string _name;
-		Form *_formClass;
-	} t_forms;
+
 };
+
 
 #endif

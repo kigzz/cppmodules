@@ -47,13 +47,14 @@ void PhoneBook::addContact() {
 	if (tmp->setInformation(this->newContactIndex + 1) == 0) {
 		delete this->contacts[this->newContactIndex];
 		this->contacts[this->newContactIndex] = tmp;
-		std::cout << "\nNew contact added succesfully\n";
+		std::cout << "\nNew contact added succesfully" << std::endl;
 
 		this->newContactIndex++;
-		if (this->contactAmount < 8) this->contactAmount++;
-	} else {
-		delete tmp;
+		if (this->contactAmount < 8)
+			this->contactAmount++;
 	}
+	else
+		delete tmp;
 	std::cout << std::endl;
 	return;
 }

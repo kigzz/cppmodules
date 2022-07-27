@@ -101,9 +101,9 @@ void	Contact::fullDisplay() {
 
 	std::cout << "===== Information of contact #" << this->index << " =====\n\n";
 	id = -1;
-	std::cout << "# Name:           " << this->fieldsInfo[++id] << "\n";
-	std::cout << "# Last name:      " << this->fieldsInfo[++id] << "\n";
-	std::cout << "# Nickname:       " << this->fieldsInfo[++id] << "\n";
-	std::cout << "# Phone number:   " << this->fieldsInfo[++id] << "\n";
+	std::cout << "# Name:           " << this->fieldsInfo[++id] << std::endl;
+	std::cout << "# Last name:      " << this->fieldsInfo[++id] << std::endl;
+	std::cout << "# Nickname:       " << this->fieldsInfo[++id] << std::endl;
+	std::cout << "# Phone number:   " << this->fieldsInfo[++id] << std::endl;
 	std::cout << "# Darkest secret: " << this->fieldsInfo[++id] << std::endl;
 }

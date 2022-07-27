@@ -1,0 +1,3 @@
+/home/bpouchep/CLionProjects/cppmodules/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/bpouchep/CLionProjects/cppmodules/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bpouchep/CLionProjects/cppmodules/cmake-build-debug/CMakeFiles/cppmodules.dir

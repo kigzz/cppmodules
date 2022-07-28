@@ -12,23 +12,16 @@
 
 #include "Conversion.hpp"
 
-void convert(const char *input)
-{
-	Conversion myConversion(input);
-
-	myConversion.printChar();
-	myConversion.printInt();
-	myConversion.printFloat();
-	myConversion.printDouble();
-}
-
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	if (argc != 2) {
-		std::cout << "Error: wrong number of arguments" << std::endl;
+		std::cerr << "One Argument required." << std::endl;
 		return (1);
 	}
-	else
-		convert(argv[1]);
+	try {
+		Conversion conversion(argv[1]);
+	}
+	catch (const Conversion::ErrorException& e) {
+		std::cerr << e.what() << std::endl;
+	}
 	return (0);
 }

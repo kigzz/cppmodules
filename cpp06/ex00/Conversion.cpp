@@ -54,28 +54,28 @@ int	Conversion::checkInput()
 		return (NAN_INF);
 	}
 	else if (this->getInput().length() == 1 &&
-			 (this->getInput()[0] == '+' || this->getInput()[0] == '-' || // prevents that the input of single digit integers get interpreted as a char
+			 (this->getInput()[0] == '+' || this->getInput()[0] == '-' || // case : 0-9
 			  this->getInput()[0] == 'f' || this->getInput()[0] == '.')) {
 		return (CHAR);
 	}
-	else if (this->getInput().find_first_of("+-") != this->getInput().find_last_of("+-")) // catches any multiple or mixed use of + and -
+	else if (this->getInput().find_first_of("+-") != this->getInput().find_last_of("+-")) // case : many + -
 		return (ERROR);
 	else if (this->getInput().find_first_not_of("+-0123456789") == std::string::npos)
 		return (INT);
 	else if (this->getInput().find_first_not_of("+-0123456789.") == std::string::npos) {
-		if (this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || // catches `0..0`
-			isdigit(this->getInput()[this->getInput().find_first_of(".") + 1]) == false || // catches `0.`
-			this->getInput().find_first_of(".") == 0) // catches `.0`
+		if (this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || // case `0..0`
+			isdigit(this->getInput()[this->getInput().find_first_of(".") + 1]) == false || // case `0.`
+			this->getInput().find_first_of(".") == 0) // case `.0`
 			return (ERROR);
 		else
 			return (DOUBLE);
 	}
 	else if (this->getInput().find_first_not_of("+-0123456789.f") == std::string::npos) {
-		if (this->getInput().find_first_of("f") != this->getInput().find_last_of("f") || // catches `0.0ff`
-			this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || // catches `0..0f`
-			this->getInput().find_first_of("f") - this->getInput().find_first_of(".") == 1 || //catches `0.f`
-			this->getInput().find_first_of(".") == 0 || // catches `.0f`
-			this->getInput()[this->getInput().find_first_of("f") + 1] != '\0') // catches `0.0f0`
+		if (this->getInput().find_first_of("f") != this->getInput().find_last_of("f") || // case `0.0ff`
+			this->getInput().find_first_of(".") != this->getInput().find_last_of(".") || // case `0..0f`
+			this->getInput().find_first_of("f") - this->getInput().find_first_of(".") == 1 || //case `0.f`
+			this->getInput().find_first_of(".") == 0 || // case `.0f`
+			this->getInput()[this->getInput().find_first_of("f") + 1] != '\0') // case `0.0f0`
 			return (ERROR);
 		else
 			return (FLOAT);
@@ -152,11 +152,7 @@ void	Conversion::printOutput(void)const {
 
 	// display float
 	if (this->getType() != NAN_INF) {
-		std::cout << "float: " << std::fixed << std::setprecision(1) << this->getFloat();
-		if (this->getFloat() - this->getInt() == 0)
-			std::cout << ".0f" << std::endl;
-		else
-			std::cout << "f" << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << this->getFloat() << "f" << std::endl;
 	}
 	else {
 		if (this->getInput() == "nan" || this->getInput() == "nanf")

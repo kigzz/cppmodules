@@ -88,7 +88,7 @@ void	Contact::tableDisplay() {
 	for (int i = 0; i < 3; i++) {
 		std::cout << "|";
 		if (this->fieldsInfo[i].length() > 10) {
-			std::cout << this->fieldsInfo->substr(0, 9) << ".";
+			std::cout << this->fieldsInfo[i].substr(0, 9) << ".";
 		}
 		else
 			std::cout << std::right << std::setw(10) << this->fieldsInfo[i];

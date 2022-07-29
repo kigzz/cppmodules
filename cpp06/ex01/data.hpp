@@ -1,8 +1,28 @@
-//
-// Created by bpouchep on 7/27/22.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/29 03:07:58 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/07/29 03:07:59 by bpouchep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef CPPMODULES_DATA_HPP
-#define CPPMODULES_DATA_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-#endif //CPPMODULES_DATA_HPP
+#include <stdint.h>
+#include <string>
+#include <iostream>
+
+struct Data {
+	int n;
+	std::string s;
+};
+
+uintptr_t serialize(Data *ptr);
+Data* deserialize(uintptr_t raw);
+
+#endif

@@ -87,8 +87,11 @@ void identify(Base& p) {
 int main() {
 	Base *base;
 
+	std::cout << "****** GENERATING RANDOM BASE ******" << std::endl;
 	base = generate();
+	std::cout << "****** POINTER IDENTIFY ******" << std::endl;
 	identify(base); // pointer
+	std::cout << "****** REFERENCE IDENTIFY ******" << std::endl;
 	identify(*base); // reference
 
 	delete base;

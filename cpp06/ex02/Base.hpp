@@ -1,14 +1,21 @@
-//
-// Created by bpouchep on 7/27/22.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/29 03:08:31 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/07/29 03:08:32 by bpouchep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef CPPMODULES_BASE_HPP
-#define CPPMODULES_BASE_HPP
-
+#ifndef BASE_HPP
+#define BASE_HPP
 
 class Base {
-
+public:
+	virtual ~Base();
 };
 
-
-#endif //CPPMODULES_BASE_HPP
+#endif

@@ -1,8 +1,21 @@
-//
-// Created by bpouchep on 7/27/22.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   C.hpp                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/29 03:08:22 by bpouchep          #+#    #+#             */
+/*   Updated: 2022/07/29 03:08:23 by bpouchep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef CPPMODULES_C_HPP
-#define CPPMODULES_C_HPP
+#ifndef C_HPP_
+#define C_HPP_
 
-#endif //CPPMODULES_C_HPP
+#include "Base.hpp"
+
+class C : public Base {
+};
+
+#endif

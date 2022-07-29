@@ -14,7 +14,6 @@
 #define ARRAY_HPP
 
 #include <iostream>
-#include <string>
 #include <exception>
 
 template <typename T>
@@ -31,14 +30,14 @@ public:
 
 	std::size_t size() const;
 
-private:
-	T* _head;
-	std::size_t _size;
-public:
 	class InvalidIndexException : public std::exception {
 	public:
 		const char* what() const throw();
 	};
+
+private:
+	T* _head;
+	std::size_t _size;
 };
 
 template <typename T>
@@ -92,7 +91,7 @@ size_t Array<T>::size() const {
 
 template <typename T>
 const char *Array<T>::InvalidIndexException::what() const throw() {
-	return "Invalid index: index is either bigger than size or less than 0";
+	return "Invalid index";
 }
 
 #endif

@@ -86,7 +86,20 @@ int main() {
 		std::cout << copy[i] << std::endl;
 	}
 
-	std::cout << "\n----- change string array[2] to \":(\"-----" << std::endl;
+	Array<int> copy3(arrInt);
+
+	std::cout << "\nINT ARRAY" << std::endl;
+	std::cout << "size: " << arrInt.size() << '\n' << std::endl;
+	for (std::size_t i = 0; i < arrInt.size(); ++i) {
+		std::cout << arrInt[i] << std::endl;
+	}
+	std::cout << "\nCOPY ARRAY:" << std::endl;
+	std::cout << "size: " << copy3.size() << '\n' << std::endl;
+	for (std::size_t i = 0; i < copy3.size(); ++i) {
+		std::cout << copy3[i] << std::endl;
+	}
+
+	std::cout << "\n----- change string array[2] to \":(\" -----" << std::endl;
 	arrString[2] = ":(";
 
 	std::cout << "\nSTRING ARRAY:" << std::endl;
@@ -129,19 +142,78 @@ int main() {
 		std::cout << copy2[i] << std::endl;
 	}
 
-	std::cout << "\n----- change string array[2] to \":D\"-----" << std::endl;
-	arrString[2] = ":D";
+	std::cout << "\n----- change string copy2[2] to \":D\"-----" << std::endl;
+	copy2[2] = ":D";
+	std::cout << "copy[2] = " << copy[2] << std::endl;
 
 	std::cout << "\nSTRING ARRAY:" << std::endl;
 	std::cout << "size: " << arrString.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < arrString.size(); ++i) {
+	for (std::size_t i = 0; i < arrString.size(); i++) {
 		std::cout << arrString[i] << std::endl;
 	}
 	std::cout << "\nCOPY ARRAY:" << std::endl;
 	std::cout << "size: " << copy2.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < copy2.size(); ++i) {
+	for (std::size_t i = 0; i < copy2.size(); i++) {
 		std::cout << copy2[i] << std::endl;
 	}
 
 	return 0;
 }
+
+// MAIN 42
+/*
+#include <iostream>
+#include <cstdlib>
+#include "Array.hpp"
+#define MAX_VAL 750
+
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[750] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
+}
+*/

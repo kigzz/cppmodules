@@ -36,28 +36,28 @@ public:
 	};
 
 private:
-	T* _head;
+	T* _first;
 	std::size_t _size;
 };
 
 template <typename T>
-Array<T>::Array() : _head(NULL), _size(0){
+Array<T>::Array() : _first(NULL), _size(0){
 }
 
 template <typename T>
 Array<T>::Array(unsigned int size) {
-	this->_head = new T[size];
+	this->_first = new T[size];
 	this->_size = size;
 }
 
 template <typename T>
-Array<T>::Array(const Array &copy) : _head(NULL) {
+Array<T>::Array(const Array &copy) : _first(NULL) {
 	*this = copy;
 }
 
 template <typename T>
 Array<T>::~Array() {
-	delete [] this->_head;
+	delete [] this->_first;
 }
 
 template <typename T>
@@ -65,13 +65,13 @@ Array<T> &Array<T>::operator=(const Array &other) {
 	if (this == &other)
 		return *this;
 	if (this->_size != other._size) {
-		if (this->_head != NULL)
-			delete[] this->_head;
-		this->_head = new T[other._size];
+		if (this->_first != NULL)
+			delete[] this->_first;
+		this->_first = new T[other._size];
 		this->_size = other.size();
 	}
 	for (std::size_t i = 0; i < this->_size; ++i) {
-		this->_head[i] = other[i];
+		this->_first[i] = other[i];
 	}
 	return *this;
 }
@@ -81,7 +81,7 @@ T &Array<T>::operator[](std::size_t index) const {
 	if (index >= this->_size || index < 0)
 		throw Array::InvalidIndexException();
 	else
-		return this->_head[index];
+		return this->_first[index];
 }
 
 template <typename T>

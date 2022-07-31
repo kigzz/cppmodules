@@ -21,6 +21,8 @@ public:
 	WrongCat(const WrongCat& copy);
 	~WrongCat();
 
+	WrongCat& operator=(const WrongCat& other);
+
 	void makeSound() const;
 
 private:

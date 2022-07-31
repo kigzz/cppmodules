@@ -28,6 +28,12 @@ WrongCat::~WrongCat() {
 	std::cout << "WrongCat: destructor" << std::endl;
 }
 
+WrongCat& WrongCat::operator=(const WrongCat& other) {
+	if (this == &other)
+		return *this;
+	this->_type = other._type;
+	return *this;
+}
 void WrongCat::makeSound() const {
 	std::cout << "** Meow! Meow! Meow! **" << std::endl;
 }

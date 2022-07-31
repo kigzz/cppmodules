@@ -31,6 +31,7 @@ Cat::~Cat() {
 Cat& Cat::operator=(const Cat& other) {
 	if (this == &other)
 		return *this;
+	this->_type = other._type;
 	return *this;
 }
 

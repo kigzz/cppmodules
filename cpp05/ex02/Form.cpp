@@ -44,7 +44,6 @@ Form& Form::operator=(const Form &other) {
 	std::cout << "Assignment operator" << std::endl;
 	if (this == &other)
 		return *this;
-	// nothing to assign in this class
 	return *this;
 }
 

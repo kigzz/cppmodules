@@ -33,8 +33,6 @@ void Dog::makeSound() const {
 }
 
 Dog& Dog::operator=(const Dog& other) {
-	this->Animal::operator=(other);
-
 	//this->_brain = other._brain; // shallow copy
 	*this->_brain = *other._brain; // deep copy
 

@@ -28,6 +28,12 @@ Cat::~Cat() {
 	std::cout << "Cat: destructor" << std::endl;
 }
 
+Cat& Cat::operator=(const Cat& other) {
+	if (this == &other)
+		return *this;
+	return *this;
+}
+
 void Cat::makeSound() const {
 	std::cout << "** Meow! Meow! Meow! **" << std::endl;
 }

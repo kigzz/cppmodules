@@ -22,7 +22,7 @@ public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string& target);
 	ShrubberyCreationForm(const ShrubberyCreationForm& other);
-	~ShrubberyCreationForm();
+	virtual ~ShrubberyCreationForm();
 
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 

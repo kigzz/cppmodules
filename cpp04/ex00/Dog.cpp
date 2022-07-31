@@ -28,6 +28,12 @@ Dog::~Dog() {
 	std::cout << "Dog: destructor" << std::endl;
 }
 
+Dog& Dog::operator=(const Dog& other) {
+	if (this == &other)
+		return *this;
+	return *this;
+}
+
 void Dog::makeSound() const {
 	std::cout << "** Woof! Woof! Woof! **" << std::endl;
 }

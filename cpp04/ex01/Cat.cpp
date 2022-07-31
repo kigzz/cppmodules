@@ -20,8 +20,8 @@ Cat::Cat() {
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy) {
-	*this = copy;
 	this->_brain = new Brain();
+	*this = copy;
 
 	std::cout << "Cat: copy constructor" << std::endl;
 }
@@ -36,7 +36,6 @@ void Cat::makeSound() const {
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	this->Animal::operator=(other);
 
 //	this->_brain = other._brain; // shallow copy
 	*this->_brain = *other._brain; // deep copy

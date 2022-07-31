@@ -22,7 +22,6 @@ class Bureaucrat;
 
 class Form {
 public:
-	Form();
 	Form(const std::string& name, const std::string& target, int signGrade, int executeGrade);
 	Form(const Form& copy);
 	virtual ~Form();
@@ -41,6 +40,8 @@ public:
 	int getExecuteGrade() const;
 
 private:
+	Form();
+
 	bool _signed;
 	const std::string _name;
 	const std::string _target;

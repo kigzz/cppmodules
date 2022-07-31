@@ -18,63 +18,60 @@
 #include <exception>
 
 int main() {
-//	std::cout << "\n========== BUREAUCRAT ==========\n" << std::endl;
-//	Bureaucrat *zoro = new Bureaucrat("Zoro", 2);
+//	std::cout << "***** GRADE OK *****" << std::endl;
+//	std::cout << std::endl;
 //	try {
-//		std::cout << "1: " << *zoro << std::endl;
-//		zoro->increment();
-//		std::cout << "2: " << *zoro << std::endl;
-//		zoro->increment();
-//		std::cout << "3: " << *zoro << std::endl;
-//		zoro->increment();
-//		std::cout << "4: " << *zoro << std::endl;
+//		Bureaucrat zoro("Zoro", 150);
+//		std::cout << "1: " << zoro << std::endl;
+//		zoro.increment();
+//		std::cout << "2: " << zoro << std::endl;
+//		zoro.increment();
+//		std::cout << "3: " << zoro << std::endl;
+//		zoro.increment();
+//		std::cout << "4: " << zoro << std::endl;
 //	}
 //	catch (std::exception& e) {
 //		std::cout << e.what() << std::endl;
 //	}
-//	delete zoro;
 //	std::cout << std::endl;
 //
-//	Bureaucrat *sanji = new Bureaucrat("Sanji", 10);
 //	try {
-//		std::cout << "1: " << *sanji << std::endl;
-//		sanji->increment(6);
-//		std::cout << "2: " << *sanji << std::endl;
-//		sanji->increment();
-//		std::cout << "3: " << *sanji << std::endl;
-//		sanji->increment();
-//		std::cout << "4: " << *sanji << std::endl;
+//		Bureaucrat sanji("Sanji", 10);
+//		std::cout << "1: " << sanji << std::endl;
+//		sanji.increment(6);
+//		std::cout << "2: " << sanji << std::endl;
+//		sanji.increment();
+//		std::cout << "3: " << sanji << std::endl;
+//		sanji.increment();
+//		std::cout << "4: " << sanji << std::endl;
 //	}
 //	catch (std::exception& e) {
 //		std::cout << e.what() << std::endl;
 //	}
-//	delete sanji;
-//
 //	std::cout << std::endl;
 //
-//	Bureaucrat *luffy = new Bureaucrat("Luffy", 145);
 //	try {
-//		std::cout << "1: " << *luffy << std::endl;
-//		luffy->decrement();
-//		std::cout << "2: " << *luffy << std::endl;
-//		luffy->decrement();
-//		std::cout << "3: " << *luffy << std::endl;
-//		luffy->decrement();
-//		std::cout << "4: " << *luffy << std::endl;
-//		luffy->decrement();
-//		std::cout << "5: " << *luffy << std::endl;
-//		luffy->decrement();
-//		std::cout << "6: " << *luffy << std::endl;
-//		luffy->decrement();
-//		std::cout << "7: " << *luffy << std::endl;
+//		Bureaucrat luffy("Luffy", 145);
+//		std::cout << "1: " << luffy << std::endl;
+//		luffy.decrement(5);
+//		std::cout << "2: " << luffy << std::endl;
+//		luffy.decrement();
+//		std::cout << "3: " << luffy << std::endl;
+//		luffy.decrement();
+//		std::cout << "4: " << luffy << std::endl;
+//		luffy.decrement();
+//		std::cout << "5: " << luffy << std::endl;
+//		luffy.decrement();
+//		std::cout << "6: " << luffy << std::endl;
+//		luffy.decrement();
+//		std::cout << "7: " << luffy << std::endl;
 //	}
 //	catch (std::exception& e) {
 //		std::cout << e.what() << std::endl;
 //	}
-//	delete luffy;
 //
 //	std::cout << std::endl;
-//	std::cout << "***** EXCEPTION *****" << std::endl;
+//	std::cout << "***** GRADE TOO HIGH / LOW *****" << std::endl;
 //	std::cout << std::endl;
 //
 //	std::cout << "Try1: Bureaucrate Nami, grade 151" << std::endl;
@@ -99,49 +96,71 @@ int main() {
 
 	std::cout << "\n========== FORM ==========\n" << std::endl;
 
-	Bureaucrat* poor = new Bureaucrat("Poor", 150);
-	Bureaucrat* rich = new Bureaucrat("Rich", 15);
-	Form* budgets = new Form("budgets", 30, 10);
+	Bureaucrat poor("Poor", 150);
+	Bureaucrat rich("Rich", 15);
+	Form budgets("budgets", 149, 100);
 
 	std::cout << std::endl;
 
-	// Bureaucrat::signForm()
-	std::cout << *budgets;
+	// Form cout unsigned
+	std::cout << budgets;
+
 	std::cout << std::endl;
+
+	// Form grade check
+		// Too low execute/sign grade
 	try {
-		poor->signForm(*budgets);
-	} catch (std::exception& e) {
+		Form taxes("taxes", 10, 1000);
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+		// too high execute/sign grade
+	try {
+		Form taxes("taxes", 0, 39);
+	}
+	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 
-	try {
-		rich->signForm(*budgets);
-	} catch (std::exception& e) {
-		std::cout << e.what()  << std::endl;
-	}
-
-	std::cout << std::endl;
-	std::cout << "**********************************" << std::endl;
 	std::cout << std::endl;
 
 	// Form::beSigned()
 	try {
-		budgets->beSigned(*poor);
-	} catch (std::exception& e) {
+		budgets.beSigned(poor);
+	}
+	catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		budgets.beSigned(rich);
+	}
+	catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	// Bureaucrat::signForm()
+	try {
+		poor.signForm(budgets);
+	}
+	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	try {
-		budgets->beSigned(*rich);
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		rich.signForm(budgets);
 	}
+	catch (std::exception& e) {
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << std::endl;
+	// Form cout signed
+	std::cout << budgets;
 
 	std::cout << std::endl;
 
-	delete poor;
-	delete rich;
-	delete budgets;
+	std::cout << "**********************************" << std::endl;
+	std::cout << std::endl;
 
 	return 0;
 }

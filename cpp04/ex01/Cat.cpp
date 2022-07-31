@@ -41,7 +41,6 @@ Cat& Cat::operator=(const Cat& other) {
 	*this->_brain = *other._brain; // deep copy
 
 	std::cout << "Cat: assignment operator" << std::endl;
-
 	return *this;
 }
 

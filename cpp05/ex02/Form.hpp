@@ -29,9 +29,8 @@ public:
 	Form& operator=(const Form& other);
 
 	void beSigned(const Bureaucrat& bureaucrat);
-	void beExecuted(const Bureaucrat& bureaucrat) const;
 
-	virtual void executeAction() const = 0;
+	virtual void execute() const = 0;
 
 	const std::string& getName() const;
 	const std::string& getTarget() const;

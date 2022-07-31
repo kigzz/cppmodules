@@ -14,9 +14,9 @@
 
 void checkGradeForm(int grade) {
 	if (grade < Bureaucrat::maxGrade)
-		throw Bureaucrat::GradeTooHighException();
+		throw Form::GradeTooHighException();
 	if (grade > Bureaucrat::minGrade)
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 Form::Form() : _signed(false), _name("Form"), _signGrade(150), _executeGrade(150) {
@@ -43,7 +43,7 @@ Form& Form::operator=(const Form &other) {
 	std::cout << "Assignment operator" << std::endl;
 	if (this == &other)
 		return *this;
-	// nothing to assign in this class
+	// nothing to assign
 	return *this;
 }
 
@@ -79,11 +79,11 @@ void Form::beSigned(const Bureaucrat &bureaucrat) {
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "grade too high";
+	return "Form : grade too high";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "grade too low";
+	return "Form : grade too low";
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& obj) {

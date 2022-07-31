@@ -75,20 +75,19 @@ void Bureaucrat::decrement(int value) {
 	this->_grade += value;
 }
 
+void Bureaucrat::signForm(Form& form) {
+	form.beSigned(*this);
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Exception : grade too high";
+	return "Bureaucrat : grade too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Exception : grade too low";
-}
-
-void Bureaucrat::signForm(Form& form) {
-	form.beSigned(*this);
+	return "Bureaucrat : grade too low";
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return (out);
 }
-

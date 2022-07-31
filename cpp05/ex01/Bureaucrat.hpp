@@ -35,7 +35,6 @@ public:
 	const std::string& getName() const;
 	int getGrade() const;
 
-
 	void increment();
 	void increment(int value);
 	void decrement();

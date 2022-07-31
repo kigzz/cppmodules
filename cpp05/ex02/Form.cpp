@@ -77,31 +77,17 @@ void Form::beSigned(const Bureaucrat &bureaucrat) {
 		std::cout << bureaucrat.getName() << " signed " << this->_name << std::endl;
 	}
 	else {
-		std::cout << bureaucrat.getName() << " couldn't sign " << this->_name << " because: ";
-		throw Form::GradeTooLowException();
+		std::cout << bureaucrat.getName() << " couldn't sign " << this->_name << " because ";
+		throw Bureaucrat::GradeTooLowException();
 	}
-}
-
-void Form::beExecuted(const Bureaucrat &bureaucrat) const {
-	if (this->_signed == false) {
-		std::cout << bureaucrat.getName() << " can't execute " << this->_name << "because ";
-		throw Form::NotSigned();
-	}
-	if (bureaucrat.getGrade() > this->_executeGrade) {
-		std::cout << bureaucrat.getName() << " can't execute " << this->_name << " because: ";
-		throw Form::GradeTooLowException();
-	}
-
-	std::cout << bureaucrat.getName() << " has executed " << this->_name << std::endl;
-	this->executeAction();
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "grade too high";
+	return "Form : grade too high";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "grade too low";
+	return "Form : grade too low";
 }
 
 const char* Form::NotSigned::what() const throw() {

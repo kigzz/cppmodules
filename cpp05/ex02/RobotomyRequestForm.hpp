@@ -27,7 +27,7 @@ class RobotomyRequestForm : public Form {
 
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 
-		void executeAction() const;
+		void execute() const;
 	private:
 };
 

@@ -32,11 +32,12 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
 	std::cout << "Robotomy Request Form assignment operator" << std::endl;
-	if (this == &other) return *this;
+	if (this == &other)
+		return *this;
 	return *this;
 }
 
-void RobotomyRequestForm::executeAction() const {
+void RobotomyRequestForm::execute() const {
 	// use current time as seed for random generator
 	std::srand(std::time(NULL));
 

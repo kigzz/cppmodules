@@ -37,7 +37,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void ShrubberyCreationForm::executeAction() const {
+void ShrubberyCreationForm::execute() const {
 	std::ofstream out;
 
 	out.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::in | std::ofstream::trunc);
@@ -53,4 +53,6 @@ void ShrubberyCreationForm::executeAction() const {
 	out << "       |o|        | |         | |         " << std::endl;
 	out << "       |.|        | |         | |         " << std::endl;
 	out << "    ||/ ._|//_/__/  ,|_//__||/.  |_//__/_ " << std::endl;
+
+	out.close();
 }

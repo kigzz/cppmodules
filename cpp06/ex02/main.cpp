@@ -89,8 +89,10 @@ int main() {
 
 	std::cout << "****** GENERATING RANDOM BASE ******" << std::endl;
 	base = generate();
+	std::cout << std::endl;
 	std::cout << "****** POINTER IDENTIFY ******" << std::endl;
 	identify(base); // pointer
+	std::cout << std::endl;
 	std::cout << "****** REFERENCE IDENTIFY ******" << std::endl;
 	identify(*base); // reference
 

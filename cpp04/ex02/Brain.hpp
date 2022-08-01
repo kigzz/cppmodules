@@ -23,11 +23,11 @@ public:
 	~Brain();
 
 	Brain& operator=(const Brain& other);
+	std::string getIdea(size_t i) const;
+	void setIdea(size_t i, std::string idea);
 
-	static const int nIdeas = 100;
-
-	std::string ideas[Brain::nIdeas];
+private:
+	std::string ideas[100];
 };
-
 
 #endif

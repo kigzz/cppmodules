@@ -26,9 +26,12 @@ public:
 
 	void makeSound() const;
 	Brain *getBrain() const;
+
+	void getIdea() const;
+	void setIdea(size_t i, std::string idea) const;
+
 private:
 	Brain *_brain;
 };
-
 
 #endif

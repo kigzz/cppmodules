@@ -26,8 +26,22 @@ Brain::~Brain() {
 	std::cout << "Brain: destructor" << std::endl;
 }
 
+std::string Brain::getIdea(size_t i) const {
+	if (i < 100)
+		return this->ideas[i];
+	else
+		return "Index must be between 0-99";
+}
+
+void Brain::setIdea(size_t i, std::string idea) {
+	if (i < 100)
+		this->ideas[i] = idea;
+	else
+		std::cout << "Index must be between 0-9" << std::endl;
+}
+
 Brain& Brain::operator=(const Brain &other) {
-	for (int i = 0; i < Brain::nIdeas; i++) {
+	for (int i = 0; i < 100; i++) {
 		this->ideas[i] = other.ideas[i];
 	}
 

@@ -37,9 +37,10 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void ShrubberyCreationForm::execute() const {
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
 	std::ofstream out;
 
+	(void)executor;
 	out.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::in | std::ofstream::trunc);
 
 	out << std::endl;

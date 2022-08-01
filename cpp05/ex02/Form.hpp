@@ -30,7 +30,7 @@ public:
 
 	void beSigned(const Bureaucrat& bureaucrat);
 
-	virtual void execute() const = 0;
+	virtual void execute(Bureaucrat const& executor) const = 0;
 
 	const std::string& getName() const;
 	const std::string& getTarget() const;

@@ -98,7 +98,7 @@ void Bureaucrat::executeForm(const Form& form) const {
 			throw Form::GradeTooLowException();
 		}
 		std::cout << this->getName() << " has executed " << form.getName() << std::endl;
-		form.execute();
+		form.execute(*this);
 	}
 	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;

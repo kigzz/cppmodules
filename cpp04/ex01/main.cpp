@@ -25,7 +25,6 @@ int main() {
 	Cat *cat = new Cat();
 	Animal *animal = new Animal();
 
-
 	std::cout << std::endl;
 
 	std::cout << dog->getType() << std::endl;
@@ -47,7 +46,8 @@ int main() {
 	cat->getBrain()->ideas[1] = "I like ice cream";
 
 	std::cout << "Cat ideas:" << std::endl;
-	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
+	for (int i = 0; i < 2; i++) 
+		std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "Create cat2" << std::endl;
@@ -55,7 +55,8 @@ int main() {
 	std::cout << std::endl;
 
 	std::cout << "Cat2 ideas" << std::endl;
-	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
+	for (int i = 0; i < 2; i++) 
+		std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "Cat2 = Cat" << std::endl;
@@ -63,20 +64,24 @@ int main() {
 	std::cout << std::endl;
 
 	std::cout << "Cat ideas:" << std::endl;
-	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
+	for (int i = 0; i < 2; i++) 
+		std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "Cat2 ideas" << std::endl;
-	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
+	for (int i = 0; i < 2; i++) 
+		std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "Cat ideas (now he hates ice cream)" << std::endl;
 	cat->getBrain()->ideas[1] = "I hate ice cream";
-	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
+	for (int i = 0; i < 2; i++) 
+		std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "Cat2 ideas" << std::endl;
-	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
+	for (int i = 0; i < 2; i++) 
+		std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "==================   CLEAN ALL    ==================\n" << std::endl;

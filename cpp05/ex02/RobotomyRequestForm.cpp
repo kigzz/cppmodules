@@ -37,8 +37,9 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return *this;
 }
 
-void RobotomyRequestForm::execute() const {
+void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	// use current time as seed for random generator
+	(void)executor;
 	std::srand(std::time(NULL));
 
 	std::cout << "** SOME DRILLING NOISES **" << std::endl;

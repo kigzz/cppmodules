@@ -22,7 +22,6 @@ class Bureaucrat;
 
 class Form {
 public:
-	Form();
 	Form(const std::string& name, const std::string& target, int signGrade, int executeGrade);
 	Form(const Form& copy);
 	virtual ~Form();
@@ -30,9 +29,8 @@ public:
 	Form& operator=(const Form& other);
 
 	void beSigned(const Bureaucrat& bureaucrat);
-	void beExecuted(const Bureaucrat& bureaucrat) const;
 
-	virtual void executeAction() const = 0;
+	virtual void execute(Bureaucrat const& executor) const = 0;
 
 	const std::string& getName() const;
 	const std::string& getTarget() const;
@@ -41,6 +39,8 @@ public:
 	int getExecuteGrade() const;
 
 private:
+	Form();
+
 	bool _signed;
 	const std::string _name;
 	const std::string _target;

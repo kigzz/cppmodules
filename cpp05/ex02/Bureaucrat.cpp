@@ -76,11 +76,11 @@ void Bureaucrat::decrement(int value) {
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Bureaucrat : grade too high";
+	return "[Bureaucrat ]: grade too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Bureaucrat : grade too low";
+	return "[ Bureaucrat ]: grade too low";
 }
 
 void Bureaucrat::signForm(Form& form) const {
@@ -88,21 +88,16 @@ void Bureaucrat::signForm(Form& form) const {
 }
 
 void Bureaucrat::executeForm(const Form& form) const {
-	try {
-		if (form.getSigned() == false) {
-			std::cout << this->getName() << " can't execute " << form.getName() << " because ";
-			throw Form::NotSigned();
-		}
-		if (this->getGrade() > form.getExecuteGrade()) {
-			std::cout << this->getName() << " can't execute " << form.getName() << " because ";
-			throw Form::GradeTooLowException();
-		}
-		std::cout << this->getName() << " has executed " << form.getName() << std::endl;
-		form.execute(*this);
+
+	if (!form.getSigned() && this->getGrade() <= form.getExecuteGrade()) {
+		std::cout << this->getName() << " can't execute " << form.getName() << " because ";
+		throw Form::NotSigned();
 	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+	if (this->getGrade() > form.getExecuteGrade()) {
+		std::cout << this->getName() << " can't execute " << form.getName() << " because ";
+		throw Bureaucrat::GradeTooLowException();
 	}
+	form.execute(*this);
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {

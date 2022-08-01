@@ -39,7 +39,17 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	// use current time as seed for random generator
-	(void)executor;
+	if (executor.getGrade() >= this->getExecuteGrade()) {
+		std::cout << executor.getName() << " can't execute " << this->getName() << " because ";
+		throw Bureaucrat::GradeTooLowException();
+	}
+	if (!this->getSigned()) {
+		std::cout << executor.getName() << " can't execute " << this->getName() << " because ";
+		throw Form::NotSigned();
+	}
+
+	std::cout << executor.getName() << " has executed " << this->getName() << std::endl;
+
 	std::srand(std::time(NULL));
 
 	std::cout << "** SOME DRILLING NOISES **" << std::endl;

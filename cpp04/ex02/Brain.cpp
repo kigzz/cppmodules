@@ -37,7 +37,7 @@ void Brain::setIdea(size_t i, std::string idea) {
 	if (i < 100)
 		this->ideas[i] = idea;
 	else
-		std::cout << "Index must be between 0-9" << std::endl;
+		std::cout << "Index must be between 0-99" << std::endl;
 }
 
 Brain& Brain::operator=(const Brain &other) {

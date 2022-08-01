@@ -14,9 +14,9 @@
 
 void checkGradeForm(int grade) {
 	if (grade < Bureaucrat::maxGrade)
-		throw Bureaucrat::GradeTooHighException();
+		throw Form::GradeTooHighException();
 	if (grade > Bureaucrat::minGrade)
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 Form::Form() : _signed(false), _name("Form"), _target("none"), _signGrade(150), _executeGrade(150) {
@@ -83,15 +83,15 @@ void Form::beSigned(const Bureaucrat &bureaucrat) {
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "Form : grade too high";
+	return "[ Form ]: grade too high";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "Form : grade too low";
+	return "[ Form ]: grade too low";
 }
 
 const char* Form::NotSigned::what() const throw() {
-	return "form isn't signed, therefore not executable";
+	return "[ Form ]: Not signed";
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& obj) {

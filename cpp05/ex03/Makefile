@@ -35,10 +35,11 @@ $(NAME): $(OBJ)
 clean:
 	rm -rf $(OBJ)
 	rm -rf $(DEP)
-	rm -rf garden_shrubbery
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf garden_shrubbery
+
 
 re: fclean all
 

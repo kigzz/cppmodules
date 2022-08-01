@@ -14,9 +14,9 @@
 
 void checkGradeForm(int grade) {
 	if (grade < Bureaucrat::maxGrade)
-		throw Bureaucrat::GradeTooHighException();
+		throw Form::GradeTooHighException();
 	if (grade > Bureaucrat::minGrade)
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 Form::Form() : _signed(false), _name("Form"), _target("none"), _signGrade(150), _executeGrade(150) {
@@ -44,7 +44,6 @@ Form& Form::operator=(const Form &other) {
 	std::cout << "Assignment operator" << std::endl;
 	if (this == &other)
 		return *this;
-	// nothing to assign in this class
 	return *this;
 }
 
@@ -78,35 +77,21 @@ void Form::beSigned(const Bureaucrat &bureaucrat) {
 		std::cout << bureaucrat.getName() << " signed " << this->_name << std::endl;
 	}
 	else {
-		std::cout << bureaucrat.getName() << " couldn't sign " << this->_name << " because: ";
-		throw Form::GradeTooLowException();
+		std::cout << bureaucrat.getName() << " couldn't sign " << this->_name << " because ";
+		throw Bureaucrat::GradeTooLowException();
 	}
-}
-
-void Form::beExecuted(const Bureaucrat &bureaucrat) const {
-	if (this->_signed == false) {
-		std::cout << bureaucrat.getName() << " can't execute " << this->_name << "because ";
-		throw Form::NotSigned();
-	}
-	if (bureaucrat.getGrade() > this->_executeGrade) {
-		std::cout << bureaucrat.getName() << " can't execute " << this->_name << " because: ";
-		throw Form::GradeTooLowException();
-	}
-
-	std::cout << bureaucrat.getName() << " has executed " << this->_name << std::endl;
-	this->executeAction();
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "grade too high";
+	return "[ Form ]: grade too high";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "grade too low";
+	return "[ Form ]: grade too low";
 }
 
 const char* Form::NotSigned::what() const throw() {
-	return "form isn't signed, therefore not executable";
+	return "[ Form ]: Not signed";
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& obj) {

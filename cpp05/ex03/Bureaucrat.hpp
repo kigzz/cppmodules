@@ -35,7 +35,6 @@ public:
 	const std::string& getName() const;
 	int getGrade() const;
 
-
 	void increment();
 	void increment(int value);
 	void decrement();
@@ -43,6 +42,7 @@ public:
 
 	void signForm(Form& form) const;
 	void executeForm(const Form& Form) const;
+
 private:
 	const std::string _name;
 	int _grade;

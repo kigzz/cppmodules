@@ -47,3 +47,14 @@ Cat& Cat::operator=(const Cat& other) {
 Brain* Cat::getBrain() const {
 	return this->_brain;
 }
+
+void Cat::getIdea() const {
+	for (size_t i = 0; i < 100; i++) {
+		if (!this->_brain->getIdea(i).empty())
+			std::cout << "Idea #" << i << ": " << this->_brain->getIdea(i) << std::endl;
+	}
+}
+
+void Cat::setIdea(size_t i, std::string idea) const {
+	this->_brain->setIdea(i, idea);
+}

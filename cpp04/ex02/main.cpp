@@ -59,12 +59,12 @@ int main() {
 //	Dog *dog2 = new Dog(*dog);
 	std::cout << std::endl;
 //
-	std::cout << "Cat2 ideas" << std::endl;
+	std::cout << "Cat2 ideas:" << std::endl;
 	cat2->getIdea();
 //	dog2->getIdea();
 	std::cout << std::endl;
 
-	std::cout << "Cat2 = Cat" << std::endl;
+	std::cout << "Cat2 = Cat:" << std::endl;
 	*cat2 = *cat;
 //	*dog2 = *dog;
 	std::cout << std::endl;
@@ -74,19 +74,19 @@ int main() {
 //	dog->getIdea();
 	std::cout << std::endl;
 
-	std::cout << "Cat2 ideas" << std::endl;
+	std::cout << "Cat2 ideas:" << std::endl;
 	cat2->getIdea();
 //	dog2->getIdea();
 	std::cout << std::endl;
 
-	std::cout << "Cat ideas (now he hates ice cream)" << std::endl;
+	std::cout << "Cat ideas (now he hates ice cream):" << std::endl;
 	cat->setIdea(1, "I hate ice cream");
 //	dog->setIdea(1, "I hate ice cream");
 	cat->getIdea();
 //	dog->getIdea();
 	std::cout << std::endl;
 
-	std::cout << "Cat2 ideas" << std::endl;
+	std::cout << "Cat2 ideas:" << std::endl;
 	cat2->getIdea();
 //	dog2->getIdea();
 	std::cout << std::endl;

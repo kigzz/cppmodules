@@ -118,18 +118,22 @@ int main() {
 
 	std::cout << "INTERN CREATES FORMS:" << std::endl;
 	//ShrubberyCreationForm *garden = new ShrubberyCreationForm("garden");
-	Form *garden = intern->makeForm("shrubbery creation", "garden");
+	Form *garden;
+	garden = intern->makeForm("shrubbery creation", "garden");
 	std::cout << std::endl;
 
 	//RobotomyRequestForm *neighbor = new RobotomyRequestForm("neighbor");
-	Form *neighbor = intern->makeForm("robotomy request", "neighbor");
+	Form *neighbor;
+	neighbor = intern->makeForm("robotomy request", "neighbor");
 	std::cout << std::endl;
 
 	//PresidentialPardonForm *rick = new PresidentialPardonForm("rick");
-	Form *rick = intern->makeForm("presidential pardon", "rick");
+	Form *rick;
+	rick = intern->makeForm("presidential pardon", "rick");
 	std::cout << std::endl;
 
-	Form *budgets = intern->makeForm("budgets", "morty");
+	Form *budgets;
+	budgets = intern->makeForm("budgets", "morty");
 	std::cout << std::endl;
 
 	std::cout << "DELETE INTERN:" << std::endl;
@@ -153,9 +157,11 @@ int main() {
 	std::cout << std::endl;
 
 	// ShrubberyCreationForm
+
 	try { // try to execute before sign
 		b100->executeForm(*garden);
-	} catch (std::exception& e) {
+	}
+	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	try { // try to sign with low level
@@ -235,6 +241,11 @@ int main() {
 	}
 
 	std::cout << std::endl;
+
+	std::cout << "PRINT FORMS:" << std::endl;
+	std::cout << *garden;
+	std::cout << *neighbor;
+	std::cout << *rick;
 
 	delete garden;
 	delete neighbor;

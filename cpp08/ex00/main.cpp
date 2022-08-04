@@ -13,6 +13,8 @@
 #include "EasyFind.hpp"
 
 int main() {
+
+	std::cout << "=========== VECTOR ===========\n" << std::endl;
 	std::vector<int> v;
 	std::vector<int>::iterator it;
 
@@ -52,5 +54,24 @@ int main() {
 	else
 		std::cout << "Iterator: " << *it << std::endl;
 
+	std::cout << "\n=========== LIST ===========\n" << std::endl;
+
+	std::list<int> l1;
+	std::list<int>::iterator lit;
+
+	for (int i = 0; i < 10; i++) {
+		l1.push_back(i * i);
+	}
+	std::cout << "List : " << std::endl;
+	for (std::list<int>::iterator i = l1.begin(); i != l1.end(); i++) {
+		std::cout << *i << std::endl;
+	}
+	std::cout << std::endl;
+
+	lit = easyfind(l1, 81);
+	if (lit == l1.end())
+		std::cout << "Not found" << std::endl;
+	else
+		std::cout << "Iterator: " << *lit << std::endl;
 	return 0;
 }

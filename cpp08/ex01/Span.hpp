@@ -19,8 +19,8 @@
 #include <algorithm>
 
 class Span {
-private:
 	typedef std::vector<int>::iterator IT;
+private:
 	std::vector<int> _vector;
 	std::size_t _size;
 

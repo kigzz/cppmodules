@@ -26,12 +26,18 @@ int main() {
 	Data* retData;
 
 	data = new Data;
-
+	data->n = 5;
+	data->s = "Coucou";
 	std::cout << "Data             : " << data << std::endl;
+	std::cout << "n = " << data->n << std::endl;
+	std::cout << "s = " << data->s << std::endl;
 	rawData = serialize(data);
 	std::cout << "Raw data         : " << rawData << std::endl;
+	std::cout << "Raw data         : " << &rawData << std::endl;
 	retData = deserialize(rawData);
 	std::cout << "Deserialized data: " << retData << std::endl;
+	std::cout << "n = " << data->n << std::endl;
+	std::cout << "s = " << data->s << std::endl;
 
 	delete data;
 
